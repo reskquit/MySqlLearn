@@ -1,58 +1,27 @@
 package org.ilya.resk;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class MusicPlayer {
 
-    private Music music;
-    private List<Music> musicList = new ArrayList<>();
-    private String name;
-    private int volume;
-
-
-
-    public List<Music> getMusicList() {
-        return musicList;
-    }
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+    private ClassicalMusic classicalMusic;
+    private JazzMusic jazzMusic;
+    @Autowired
+    public MusicPlayer(ClassicalMusic m1, JazzMusic m2){
+        this.classicalMusic= m1;
+        this.jazzMusic = m2;
     }
 
+    public String playMusic(){
+        /*
+        System.out.println(this.classicalMusic.getSong());
+        System.out.println(this.jazzMusic.getSong());
 
-    public String getName() {
-        return name;
+         */
+        return this.classicalMusic.getSong() +" " + this.jazzMusic.getSong() ;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public void setMusic(Music m){
-        this.music = m;
-    }
-    public MusicPlayer(Music m){
-        this.music = m;
-    }
-
-    public MusicPlayer(){}
-
-    public void playMusic(){
-        System.out.println(this.music.getSong());
-    }
-/*
-    public void playMusic(){
-        for(Music music : this.musicList)
-            System.out.println(music.getSong());
-    }
-
- */
 }
