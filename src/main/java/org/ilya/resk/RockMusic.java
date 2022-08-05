@@ -2,7 +2,7 @@ package org.ilya.resk;
 
 import org.springframework.stereotype.Component;
 
-//@Component("RockMusic")
+@Component("RockMusic")
 public class RockMusic implements Music {
     @Override
     public String getSong() {
