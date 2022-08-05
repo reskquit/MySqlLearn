@@ -1,11 +1,9 @@
 package org.ilya.resk;
 
-public class ClassicalMusic implements Music{
-    private ClassicalMusic(){}
+import org.springframework.stereotype.Component;
 
-    public static ClassicalMusic getInstance(){
-        return new ClassicalMusic();
-    }
+@Component("ClassicalMusic")
+public class ClassicalMusic implements Music{
     @Override
     public String getSong() {
         return "Rapsody";

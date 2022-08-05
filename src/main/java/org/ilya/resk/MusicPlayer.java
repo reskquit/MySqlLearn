@@ -5,6 +5,7 @@ import java.util.List;
 
 public class MusicPlayer {
 
+    private Music music;
     private List<Music> musicList = new ArrayList<>();
     private String name;
     private int volume;
@@ -34,7 +35,7 @@ public class MusicPlayer {
     public void setVolume(int volume) {
         this.volume = volume;
     }
-/*
+
     public void setMusic(Music m){
         this.music = m;
     }
@@ -42,11 +43,16 @@ public class MusicPlayer {
         this.music = m;
     }
 
- */
     public MusicPlayer(){}
 
+    public void playMusic(){
+        System.out.println(this.music.getSong());
+    }
+/*
     public void playMusic(){
         for(Music music : this.musicList)
             System.out.println(music.getSong());
     }
+
+ */
 }
