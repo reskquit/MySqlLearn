@@ -10,7 +10,7 @@ public class Computer {
 
     @Override
     public String toString() {
-        return "Computer " + id + " "+musicPlayer.playMusic(MusicPlayer.Type.ROCK);
+        return "Computer " + id + " "+ "\n"+musicPlayer.playMusic(MusicPlayer.Type.ROCK) ;
     }
     @Autowired
     public Computer(MusicPlayer musicPlayer) {

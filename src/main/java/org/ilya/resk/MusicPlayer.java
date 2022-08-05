@@ -2,6 +2,7 @@ package org.ilya.resk;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,6 +15,17 @@ public class MusicPlayer {
         CLASSICAL,
         ROCK,
         JAZZ;
+    }
+    @Value("${musicPlayer.name}")
+    private String name;
+    @Value("${musicPlayer.volume}")
+    private int value;
+
+    public String getName() {
+        return name;
+    }
+    public int getValue() {
+        return value;
     }
     private Music music1;
     private Music music2;
@@ -29,16 +41,16 @@ public class MusicPlayer {
 
     public String playMusic(Type t){
         Random r =new Random();
-        String answer;
+        String answer = "Name: " + this.name + "Valume: " + this.value;
         switch (t){
             case JAZZ:
-                answer = music3.getSong().get( r.nextInt(music3.getSong().size()));
+                answer += music3.getSong().get( r.nextInt(music3.getSong().size()));
                 break;
             case ROCK:
-                answer = music1.getSong().get( r.nextInt(music1.getSong().size()));
+                answer += music1.getSong().get( r.nextInt(music1.getSong().size()));
                 break;
             case CLASSICAL:
-                answer = music2.getSong().get( r.nextInt(music2.getSong().size()));
+                answer += music2.getSong().get( r.nextInt(music2.getSong().size()));
                 break;
             default:
                 answer = "error";
