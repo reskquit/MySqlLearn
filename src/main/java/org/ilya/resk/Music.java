@@ -1,5 +1,7 @@
 package org.ilya.resk;
 
+import java.util.List;
+
 public interface Music {
 
     default void doMyInit(){
@@ -10,5 +12,5 @@ public interface Music {
         System.out.println("Destroy " + this);
     }
 
-    String getSong();
+    List<String> getSong();
 }
